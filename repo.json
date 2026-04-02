@@ -14,7 +14,7 @@
         "IconUrl": "https://raw.githubusercontent.com/NNekoPlugins/NNekoWeaponIcons/main/NNekoWeaponIcons/Data/NNeko.png",
         "IsHide": "False",
         "IsTestingExclusive": "False",
-        "Changelog": "v1.3 - Command Handler Improvments\n- Added support for passing arguments\n- Made commands and arguments case insensitive\n- Expanded RNG command to allow range adjustments via arguments\n- Added dtr and toggle arguments to the main config command",
+        "Changelog": "- initial release.",
         "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.1/latest.zip",
         "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.1/latest.zip",
         "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.1/latest.zip"
