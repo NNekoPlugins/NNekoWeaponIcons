@@ -11,6 +11,10 @@
         "utility",
         "other"
     ],
+    "CategoryTags": [
+        "Utility",
+        "Other"
+    ],
     "IconUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons/Data/NNeko.png",
     "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons"
 }
