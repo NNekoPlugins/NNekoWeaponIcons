@@ -1,9 +1,10 @@
-﻿using System;
-using System.Numerics;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.Components;
 using Dalamud.Interface.Windowing;
+using System;
+using System.Numerics;
 
-namespace SamplePlugin.Windows;
+namespace NNekoWeaponIcons.Windows;
 
 public class ConfigWindow : Window, IDisposable
 {
@@ -12,12 +13,12 @@ public class ConfigWindow : Window, IDisposable
     // We give this window a constant ID using ###.
     // This allows for labels to be dynamic, like "{FPS Counter}fps###XYZ counter window",
     // and the window ID will always be "###XYZ counter window" for ImGui
-    public ConfigWindow(Plugin plugin) : base("A Wonderful Configuration Window###With a constant ID")
+    public ConfigWindow(Plugin plugin) : base("Weapon Icons (Armoury Board Overlay)###With a constant ID")
     {
         Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
                 ImGuiWindowFlags.NoScrollWithMouse;
 
-        Size = new Vector2(232, 90);
+        Size = new Vector2(500, 125);
         SizeCondition = ImGuiCond.Always;
 
         configuration = plugin.Configuration;
@@ -40,20 +41,27 @@ public class ConfigWindow : Window, IDisposable
 
     public override void Draw()
     {
-        // Can't ref a property, so use a local copy
-        var configValue = configuration.SomePropertyToBeSavedAndWithADefault;
-        if (ImGui.Checkbox("Random Config Bool", ref configValue))
-        {
-            configuration.SomePropertyToBeSavedAndWithADefault = configValue;
-            // Can save immediately on change if you don't want to provide a "Save and Close" button
-            configuration.Save();
-        }
+        //if (!ImGui.CollapsingHeader("Weapon Icons (Armoury Board Overlay)", ImGuiTreeNodeFlags.DefaultOpen))
+        //    return;
 
-        var movable = configuration.IsConfigWindowMovable;
-        if (ImGui.Checkbox("Movable Config Window", ref movable))
+        ImGui.PushID("WeaponIconsSettings");
+
+        bool mini = configuration.WeaponIconsMiniMode;
+        if (ImGui.Checkbox("Mini mode (bottom-left icons)", ref mini))
         {
-            configuration.IsConfigWindowMovable = movable;
+            configuration.WeaponIconsMiniMode = mini;
             configuration.Save();
         }
+        ImGuiComponents.HelpMarker("Draws smaller icons anchored to the bottom-left of each Armoury slot.");
+
+        bool requireCtrl = configuration.WeaponIconsRequireCtrl;
+        if (ImGui.Checkbox("Require Ctrl key", ref requireCtrl))
+        {
+            configuration.WeaponIconsRequireCtrl = requireCtrl;
+            configuration.Save();
+        }
+        ImGuiComponents.HelpMarker("When enabled, overlay only appears while holding Ctrl.");
     }
+
+    
 }

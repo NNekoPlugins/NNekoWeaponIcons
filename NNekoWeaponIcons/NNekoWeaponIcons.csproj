@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/14.0.2">
+  <PropertyGroup>
+    <Name>NNekoWeaponIcons</Name>
+    <Author>NaughtyNeko</Author>
+    <Punchline>Can't seem to find the right weapon for the job?  This may help!</Punchline>
+    <Description>Adds a Clas/Job Icon Overlay in Armoury Chest.  Split from VIWI plugin's Kitchen Sink module.</Description>
+    <Tags>NNeko,NaughtyNeko,UI,Utility,Other</Tags>
+    <Version>0.0.0.1</Version>
+    <PackageProjectUrl>https://github.com/NNekoPlugins/NNekoWeaponIcons</PackageProjectUrl>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="NNeko.png" />
+  </ItemGroup>
+    <ItemGroup>
+        <None Update="NNekoWeaponIcons.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <EmbeddedResource Include="NNeko.png" />
+    </ItemGroup>
+</Project>

@@ -1,12 +1,11 @@
-﻿using Dalamud.Game.Command;
+using Dalamud.Game.Command;
+using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using System.IO;
-using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
-using SamplePlugin.Windows;
+using NNekoWeaponIcons.Windows;
 
-namespace SamplePlugin;
+namespace NNekoWeaponIcons;
 
 public sealed class Plugin : IDalamudPlugin
 {
@@ -17,31 +16,31 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IPlayerState PlayerState { get; private set; } = null!;
     [PluginService] internal static IDataManager DataManager { get; private set; } = null!;
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
+    [PluginService] internal static IKeyState KeyState { get; private set; } = null!;
+    [PluginService] internal static IGameGui GameGui { get; private set; } = null!;
 
-    private const string CommandName = "/pmycommand";
+
+    private const string CommandName = "/nnwi";
 
     public Configuration Configuration { get; init; }
 
-    public readonly WindowSystem WindowSystem = new("SamplePlugin");
+    public readonly WindowSystem WindowSystem = new("NNekoWeaponIcons");
     private ConfigWindow ConfigWindow { get; init; }
-    private MainWindow MainWindow { get; init; }
+    private WeaponIcons? weaponIcons;
 
     public Plugin()
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
         // You might normally want to embed resources and load them from the manifest stream
-        var goatImagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
 
         ConfigWindow = new ConfigWindow(this);
-        MainWindow = new MainWindow(this, goatImagePath);
 
         WindowSystem.AddWindow(ConfigWindow);
-        WindowSystem.AddWindow(MainWindow);
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "A useful message to display in /xlhelp"
+            HelpMessage = "Toggle the plugin Config."
         });
 
         // Tell the UI system that we want our windows to be drawn through the window system
@@ -54,33 +53,74 @@ public sealed class Plugin : IDalamudPlugin
         // Adds another button doing the same but for the main ui of the plugin
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
 
+        Enable();
+
         // Add a simple message to the log with level set to information
         // Use /xllog to open the log window in-game
-        // Example Output: 00:57:54.959 | INF | [SamplePlugin] ===A cool log message from Sample Plugin===
-        Log.Information($"===A cool log message from {PluginInterface.Manifest.Name}===");
+        // Example Output: 00:57:54.959 | INF | [NNekoWeaponIcons] ===A cool log message from Sample Plugin===
+        Log.Information($"==={PluginInterface.Manifest.Name} has loaded.===");
     }
 
     public void Dispose()
     {
         // Unregister all actions to not leak anything during disposal of plugin
+        Disable();
         PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= ToggleMainUi;
-        
+
         WindowSystem.RemoveAllWindows();
 
         ConfigWindow.Dispose();
-        MainWindow.Dispose();
 
         CommandManager.RemoveHandler(CommandName);
     }
 
     private void OnCommand(string command, string args)
     {
-        // In response to the slash command, toggle the display status of our main ui
-        MainWindow.Toggle();
+        // In response to the slash command, toggle the display status of our config ui
+        ConfigWindow.Toggle();
     }
-    
+
     public void ToggleConfigUi() => ConfigWindow.Toggle();
-    public void ToggleMainUi() => MainWindow.Toggle();
+    public void ToggleMainUi() => ToggleConfigUi();
+
+    public void Initialize(Configuration config)
+    {
+        if (config.WeaponIconsEnabled)
+        {
+            Enable();
+        }
+        else
+        {
+            Disable();
+        }
+    }
+    public void Enable()
+    {
+        weaponIcons ??= new WeaponIcons(GameGui, KeyState, DataManager, TextureProvider, Log, Configuration);
+
+
+        if (Configuration.WeaponIconsEnabled)
+        {
+            PluginInterface.UiBuilder.Draw += weaponIcons.Draw;
+        }
+        //PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+
+        Log.Information("[WeaponIcons] Enabled.");
+    }
+    public void Disable()
+    {
+        //PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+
+
+        if (weaponIcons != null)
+        {
+            PluginInterface.UiBuilder.Draw -= weaponIcons.Draw;
+            weaponIcons.Dispose();
+            weaponIcons = null;
+        }
+
+        Log.Information("[WeaponIcons] Disabled.");
+    }
 }
