@@ -1,5 +1,4 @@
 using Dalamud.Configuration;
-using System;
 
 namespace NNekoWeaponIcons;
 
@@ -13,7 +12,6 @@ public class Configuration : IPluginConfiguration
     public bool WeaponIconsRequireCtrl { get; set; } = false;
     public bool WeaponIconsMiniMode { get; set; } = true;
 
-    // The below exists just to make saving less cumbersome
     public void Save()
     {
         Plugin.PluginInterface.SavePluginConfig(this);

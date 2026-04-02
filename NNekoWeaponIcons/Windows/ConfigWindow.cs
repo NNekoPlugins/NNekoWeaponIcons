@@ -1,7 +1,6 @@
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Windowing;
-using System;
 using System.Numerics;
 
 namespace NNekoWeaponIcons.Windows;
@@ -15,8 +14,7 @@ public class ConfigWindow : Window, IDisposable
     // and the window ID will always be "###XYZ counter window" for ImGui
     public ConfigWindow(Plugin plugin) : base("Weapon Icons (Armoury Board Overlay)###With a constant ID")
     {
-        Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
-                ImGuiWindowFlags.NoScrollWithMouse;
+        Flags = ImGuiWindowFlags.NoResize;
 
         Size = new Vector2(500, 125);
         SizeCondition = ImGuiCond.Always;

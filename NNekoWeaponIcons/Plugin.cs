@@ -32,8 +32,6 @@ public sealed class Plugin : IDalamudPlugin
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
-        // You might normally want to embed resources and load them from the manifest stream
-
         ConfigWindow = new ConfigWindow(this);
 
         WindowSystem.AddWindow(ConfigWindow);
@@ -49,15 +47,10 @@ public sealed class Plugin : IDalamudPlugin
         // This adds a button to the plugin installer entry of this plugin which allows
         // toggling the display status of the configuration ui
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
-
-        // Adds another button doing the same but for the main ui of the plugin
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
 
         Enable();
 
-        // Add a simple message to the log with level set to information
-        // Use /xllog to open the log window in-game
-        // Example Output: 00:57:54.959 | INF | [NNekoWeaponIcons] ===A cool log message from Sample Plugin===
         Log.Information($"==={PluginInterface.Manifest.Name} has loaded.===");
     }
 
@@ -78,7 +71,6 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnCommand(string command, string args)
     {
-        // In response to the slash command, toggle the display status of our config ui
         ConfigWindow.Toggle();
     }
 
