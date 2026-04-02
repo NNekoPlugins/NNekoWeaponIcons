@@ -97,13 +97,13 @@ public sealed class Plugin : IDalamudPlugin
         {
             PluginInterface.UiBuilder.Draw += weaponIcons.Draw;
         }
-        //PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
 
         Log.Information("[WeaponIcons] Enabled.");
     }
     public void Disable()
     {
-        //PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
 
 
         if (weaponIcons != null)
