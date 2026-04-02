@@ -48,8 +48,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            NNekoTriggers/bin/Release/NNekoWeaponIcons/latest.zip
-            NNekoTriggers/bin/Release/NNekoWeaponIcons/checksums.sha512
+            NNekoWeaponIcons/bin/Release/NNekoWeaponIcons/latest.zip
+            NNekoWeaponIcons/bin/Release/NNekoWeaponIcons/checksums.sha512
           prerelease: false
           append_body: true
           body_path: .github/release-notices.md
