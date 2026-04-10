@@ -1,4 +1,4 @@
-name: call-org-ci
+name: CI
 
 on:
   push:
