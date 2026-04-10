@@ -1,0 +1,10 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    uses: NNekoPlugins/.github/.github/workflows/release.yml@main
