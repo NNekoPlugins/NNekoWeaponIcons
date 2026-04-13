@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: NNekoTriggers/
+        working-directory: NNekoWeaponIcons/
         shell: bash
     steps:
       - name: Checkout Repository
@@ -40,7 +40,7 @@ jobs:
         run: dotnet build -c Release --no-restore --nologo -o ./bin/Release
 
       - name: Generate Checksums
-        working-directory: NNekoTriggers/bin/Release/NNekoTriggers
+        working-directory: NNekoWeaponIcons/bin/Release/NNekoWeaponIcons
         run: |
           sha512sum latest.zip >> checksums.sha512
 
@@ -48,8 +48,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            NNekoTriggers/bin/Release/NNekoTriggers/latest.zip
-            NNekoTriggers/bin/Release/NNekoTriggers/checksums.sha512
+            NNekoWeaponIcons/bin/Release/NNekoWeaponIcons/latest.zip
+            NNekoWeaponIcons/bin/Release/NNekoWeaponIcons/checksums.sha512
           prerelease: false
           append_body: true
           body_path: .github/release-notices.md
