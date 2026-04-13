@@ -15,8 +15,8 @@
         "IsHide": "False",
         "IsTestingExclusive": "False",
         "Changelog": "- initial release.",
-        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.2/latest.zip",
-        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.2/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.2/latest.zip"
+        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.5/latest.zip",
+        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.5/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.5/latest.zip"
     }
 ]
