@@ -9,7 +9,7 @@
         "ApplicableVersion": "any",
         "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons",
         "Tags": [ "utility", "other", "UI", "NaughtyNeko", "NNeko" ],
-        "DalamudApiLevel": 14,
+        "DalamudApiLevel": 15,
         "LoadPriority": 69,
         "IconUrl": "https://raw.githubusercontent.com/NNekoPlugins/NNekoWeaponIcons/main/NNekoWeaponIcons/Data/NNeko.png",
         "IsHide": "False",
