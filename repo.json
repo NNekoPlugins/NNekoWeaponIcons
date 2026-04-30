@@ -3,7 +3,7 @@
         "Author": "NaughtyNeko",
         "Name": "NNekoWeaponIcons",
         "InternalName": "NNekoWeaponIcons",
-        "AssemblyVersion": "0.0.0.7",
+        "AssemblyVersion": "0.0.0.8",
         "Punchline": "Can't seem to find the right weapon for the job?  This may help!",
         "Description": "Adds a Clas/Job Icon Overlay in Armoury Chest.  Split from VIWI plugin's Kitchen Sink module.",
         "ApplicableVersion": "any",
@@ -15,8 +15,8 @@
         "IsHide": "False",
         "IsTestingExclusive": "False",
         "Changelog": "- initial release.",
-        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.7/latest.zip",
-        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.7/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.7/latest.zip"
+        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.8/latest.zip",
+        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.8/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.8/latest.zip"
     }
 ]
