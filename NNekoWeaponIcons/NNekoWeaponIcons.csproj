@@ -5,12 +5,33 @@
     <Author>NaughtyNeko</Author>
     <Punchline>Can't seem to find the right weapon for the job?  This may help!</Punchline>
     <Description>Adds a Clas/Job Icon Overlay in Armoury Chest.  Split from VIWI plugin's Kitchen Sink module.</Description>
-    <Version>0.1</Version>
     <Tags>NNeko,NaughtyNeko,UI,Utility,Other</Tags>
     <WarningLevel>4</WarningLevel>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
   </PropertyGroup>
 
+     <!-- Version stamping (GitVersion supplied by CI workflow) -->
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <!-- Fallback version if GitVersion is not provided -->
+    <Version>0.0.0</Version>
+
+    <!-- These will be set by /p:GitVersion=1.2.3 in your workflow -->
+    <AssemblyVersion>$(GitVersion)</AssemblyVersion>
+    <FileVersion>$(GitVersion)</FileVersion>
+    <InformationalVersion>$(GitVersion)</InformationalVersion>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <CopyLocalLockfileAssemblies>true</CopyLocalLockfileAssemblies>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);IDE1006,CS8618,MSB3270</NoWarn>
+  </PropertyGroup>
+    
     <PropertyGroup>
         <Deterministic>true</Deterministic>
         <CopyLocalLockfileAssemblies>true</CopyLocalLockfileAssemblies>
