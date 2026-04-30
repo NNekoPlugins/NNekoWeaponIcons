@@ -18,23 +18,24 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
     [PluginService] internal static IKeyState KeyState { get; private set; } = null!;
     [PluginService] internal static IGameGui GameGui { get; private set; } = null!;
+    [PluginService] internal static IWindowSystem WindowSystem { get; private set; } = null!;
 
 
     private const string CommandName = "/nnwi";
 
     public Configuration Configuration { get; init; }
 
-    public readonly WindowSystem WindowSystem = new("NNekoWeaponIcons");
+    //public readonly WindowSystem WindowSystem = new("NNekoWeaponIcons");
     private ConfigWindow ConfigWindow { get; init; }
     private WeaponIcons? weaponIcons;
 
-    public Plugin()
+    public Plugin(IDalamudPluginInterface pluginInterface, IWindowSystem windowSystem)
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
         ConfigWindow = new ConfigWindow(this);
 
-        WindowSystem.AddWindow(ConfigWindow);
+        windowSystem.AddWindow(ConfigWindow);
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
