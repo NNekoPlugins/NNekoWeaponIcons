@@ -6,5 +6,8 @@
     "Tags": [ "NNeko", "NaughtyNeko", "UI", "Other" ],
     "CategoryTags": [ "UI", "Other" ],
     "IconUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons/Data/NNeko.png",
-    "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons"
+    "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons",
+    "LoadRequiredState": "0",
+    "CanUnloadAsync": "false",
+    "LoadSync": "true"
 }
