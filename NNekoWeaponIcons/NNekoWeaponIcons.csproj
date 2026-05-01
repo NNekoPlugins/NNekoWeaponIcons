@@ -8,14 +8,6 @@
         <Tags>NNeko,NaughtyNeko,UI,Other</Tags>
         <WarningLevel>4</WarningLevel>
         <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-        <!-- Version stamping (GitVersion supplied by CI workflow) -->
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <!-- Fallback version if GitVersion is not provided -->
-        <Version>0.0.0</Version>
-        <!-- These will be set by /p:GitVersion=1.2.3 in your workflow -->
-        <AssemblyVersion>$(GitVersion)</AssemblyVersion>
-        <FileVersion>$(GitVersion)</FileVersion>
-        <InformationalVersion>$(GitVersion)</InformationalVersion>
         <Deterministic>true</Deterministic>
         <CopyLocalLockfileAssemblies>true</CopyLocalLockfileAssemblies>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
