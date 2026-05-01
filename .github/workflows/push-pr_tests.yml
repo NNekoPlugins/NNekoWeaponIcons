@@ -36,6 +36,12 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
+      - name: Install Dalamud dev build
+        run: |
+          mkdir -p ~/.xlcore/dalamud/Hooks/dev
+          curl -L https://goatcorp.github.io/dalamud-distrib/dev/latest.zip -o dalamud.zip
+          unzip dalamud.zip -d ~/.xlcore/dalamud/Hooks/dev
+
       - name: Restore
         run: dotnet restore
 
