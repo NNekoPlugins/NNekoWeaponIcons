@@ -39,7 +39,7 @@ jobs:
       - name: Install Dalamud dev build
         run: |
           mkdir -p ~/.xlcore/dalamud/Hooks/dev
-          curl -L https://goatcorp.github.io/dalamud-distrib/dev/latest.zip -o dalamud.zip
+          curl -L https://github.com/goatcorp/dalamud-distrib/raw/master/dev/Dalamud.zip -o dalamud.zip
           unzip dalamud.zip -d ~/.xlcore/dalamud/Hooks/dev
 
       - name: Restore
