@@ -12,7 +12,7 @@ public class ConfigWindow : Window, IDisposable
     // We give this window a constant ID using ###.
     // This allows for labels to be dynamic, like "{FPS Counter}fps###XYZ counter window",
     // and the window ID will always be "###XYZ counter window" for ImGui
-    public ConfigWindow(Plugin plugin) : base("Weapon Icons (Armoury Board Overlay)###With a constant ID")
+    public ConfigWindow(NNekoWeaponIcons plugin) : base("Weapon Icons (Armoury Board Overlay)###With a constant ID")
     {
         Flags = ImGuiWindowFlags.NoResize;
 

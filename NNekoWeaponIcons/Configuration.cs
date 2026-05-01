@@ -14,6 +14,6 @@ public class Configuration : IPluginConfiguration
 
     public void Save()
     {
-        Plugin.PluginInterface.SavePluginConfig(this);
+        NNekoWeaponIcons.PluginInterface.SavePluginConfig(this);
     }
 }

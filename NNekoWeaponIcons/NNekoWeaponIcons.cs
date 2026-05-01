@@ -7,8 +7,9 @@ using NNekoWeaponIcons.Windows;
 
 namespace NNekoWeaponIcons;
 
-public sealed class Plugin : IDalamudPlugin
+public sealed class NNekoWeaponIcons : IDalamudPlugin
 {
+    #region
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
@@ -19,17 +20,16 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IKeyState KeyState { get; private set; } = null!;
     [PluginService] internal static IGameGui GameGui { get; private set; } = null!;
     [PluginService] internal static IWindowSystem WindowSystem { get; private set; } = null!;
-
+    #endregion
 
     private const string CommandName = "/nnwi";
 
     public Configuration Configuration { get; init; }
 
-    //public readonly WindowSystem WindowSystem = new("NNekoWeaponIcons");
     private ConfigWindow ConfigWindow { get; init; }
     private WeaponIcons? weaponIcons;
 
-    public Plugin(IDalamudPluginInterface pluginInterface, IWindowSystem windowSystem)
+    public NNekoWeaponIcons(IDalamudPluginInterface pluginInterface, IWindowSystem windowSystem)
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
