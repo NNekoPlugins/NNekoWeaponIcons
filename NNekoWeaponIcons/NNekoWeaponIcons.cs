@@ -19,8 +19,9 @@ public sealed class NNekoWeaponIcons : IDalamudPlugin
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
     [PluginService] internal static IKeyState KeyState { get; private set; } = null!;
     [PluginService] internal static IGameGui GameGui { get; private set; } = null!;
-    [PluginService] internal static IWindowSystem WindowSystem { get; private set; } = null!;
     #endregion
+
+    private readonly IWindowSystem windowSystem;
 
     private const string CommandName = "/nnwi";
 
@@ -29,12 +30,12 @@ public sealed class NNekoWeaponIcons : IDalamudPlugin
     private ConfigWindow ConfigWindow { get; init; }
     private WeaponIcons? weaponIcons;
 
-    public NNekoWeaponIcons(IDalamudPluginInterface pluginInterface, IWindowSystem windowSystem)
+    public NNekoWeaponIcons()
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
         ConfigWindow = new ConfigWindow(this);
-
+        windowSystem = new WindowSystem(PluginInterface.Manifest.InternalName);
         windowSystem.AddWindow(ConfigWindow);
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
@@ -43,7 +44,7 @@ public sealed class NNekoWeaponIcons : IDalamudPlugin
         });
 
         // Tell the UI system that we want our windows to be drawn through the window system
-        PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw += windowSystem.Draw;
 
         // This adds a button to the plugin installer entry of this plugin which allows
         // toggling the display status of the configuration ui
@@ -59,11 +60,11 @@ public sealed class NNekoWeaponIcons : IDalamudPlugin
     {
         // Unregister all actions to not leak anything during disposal of plugin
         Disable();
-        PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw -= windowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= ToggleMainUi;
 
-        WindowSystem.RemoveAllWindows();
+        windowSystem.RemoveAllWindows();
 
         ConfigWindow.Dispose();
 
@@ -98,13 +99,13 @@ public sealed class NNekoWeaponIcons : IDalamudPlugin
         {
             PluginInterface.UiBuilder.Draw += weaponIcons.Draw;
         }
-        //PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+        //PluginInterface.UiBuilder.Draw += windowSystem.Draw;
 
         Log.Information("[WeaponIcons] Enabled.");
     }
     public void Disable()
     {
-        //PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+        //PluginInterface.UiBuilder.Draw -= windowSystem.Draw;
 
 
         if (weaponIcons != null)

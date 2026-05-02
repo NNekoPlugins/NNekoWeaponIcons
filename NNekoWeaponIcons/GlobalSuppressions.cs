@@ -32,4 +32,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~P:NNekoWeaponIcons.NNekoWeaponIcons.Log")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~P:NNekoWeaponIcons.NNekoWeaponIcons.PlayerState")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~P:NNekoWeaponIcons.NNekoWeaponIcons.TextureProvider")]
-[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~P:NNekoWeaponIcons.NNekoWeaponIcons.WindowSystem")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~P:NNekoWeaponIcons.NNekoWeaponIcons.windowSystem")]
