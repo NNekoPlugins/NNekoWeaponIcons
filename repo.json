@@ -6,13 +6,10 @@
         "Description": "Adds a Clas/Job Icon Overlay in Armoury Chest.  Split from VIWI plugin's Kitchen Sink module.",
         "Tags": [ "NNeko", "NaughtyNeko", "UI", "Other" ],
         "CategoryTags": [ "UI", "Other" ],
-        "IconUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons/Data/NNeko.png",
+        "IconUrl": "https://raw.githubusercontent.com/NNekoPlugins/NNekoWeaponIcons/main/NNekoWeaponIcons/Data/NNeko.png",
         "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons"
         "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.9/latest.zip",
         "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.9/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.9/latest.zip",
-        "LoadRequiredState": "0",
-        "CanUnloadAsync": "false",
-        "LoadSync": "true"
+        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.0.9/latest.zip"
     }
 ]

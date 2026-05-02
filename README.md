@@ -3,7 +3,7 @@
 <span><img src="./Data/NNeko.png" alt="Rendering of a Fantasy stone arch, bedecked with crystals, and filled with a swirling, arcane portal." width="15%"></span>
 
   
-### NNekoWeaponIcons
+### NNeko's Weapon Icons
 Can't seem to find the right weapon for the job?  This may help!
 
 [![Latest Stable](https://img.shields.io/github/v/release/NNekoPlugins/NNekoWeaponIcons?color=blue&label=Stable)](https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/latest)
