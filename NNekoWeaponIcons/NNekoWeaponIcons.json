@@ -7,7 +7,6 @@
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "LoadPriority": 0,
-    "LoadRequiredState": 0,
     "IsHide": "False",
     "IsTestingExclusive": "False",
     "Punchline": "Can't seem to find the right weapon for the job?  This may help!",
