@@ -57,7 +57,7 @@ jobs:
           cat lint.txt | sed -E 's/^(.*)$/::warning:: \1/g'
 
       - name: Restore Project
-        run: dotnet restore NNekoWeaponIcons.csproj
+        run: dotnet restore NNekoWeaponIcons/NNekoWeaponIcons.csproj
 
       - name: Build Project
         run: | 
