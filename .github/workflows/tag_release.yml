@@ -26,20 +26,18 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
           lfs: false
-          sparse-checkout: false
-          sparse-checkout-cone-mode: false
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 10.0.x
+          GitVersion: ${{ github.ref_name }}
 
       - name: Setup Dalamud
         uses: Blooym/setup-dalamud@v1.1.0
 
       - name: Restore Dependencies
-        working-directory: NNekoWeaponIcons
-        run: dotnet restore
+        run: dotnet restore NNekowWeaponIcons/NNekowWeaponIcons.csproj
 
 
       - name: Build plugin in release mode
