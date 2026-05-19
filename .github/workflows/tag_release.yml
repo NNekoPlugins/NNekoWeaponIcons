@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        working-directory: NNekoWeaponIcons/
         shell: bash
     steps:
       - name: Checkout Repository
@@ -33,17 +34,17 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 10.0.x
-          GitVersion: ${{ github.ref_name }}
 
       - name: Setup Dalamud
         uses: Blooym/setup-dalamud@v1.1.0
 
       - name: Restore Dependencies
-        run: dotnet restore NNekoWeaponIcons/NNekoWeaponIcons.csproj
+        working-directory: NNekoWeaponIcons
+        run: dotnet restore
 
 
       - name: Build plugin in release mode
-        run: dotnet build NNekoWeaponIcons/NNekoWeaponIcons.csproj -c Release --no-restore --nologo -o NNekoWeaponIcons/bin/Release
+        run: dotnet build -c Release --no-restore --nologo -o ./bin/Release
 
       - name: Generate Checksums
         working-directory: NNekoWeaponIcons/bin/Release/NNekoWeaponIcons
@@ -64,6 +65,7 @@ jobs:
 
       - name: Update repo.json
         run: |
+          cd ../
 
           export TAG_NAME=$(echo ${{ github.ref_name }} | sed 's/^v//')
           export REPO_LOCATION=$(echo ${{ github.server_url }}/${{ github.repository }} | sed  's/\//\\\//g')
