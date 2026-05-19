@@ -17,8 +17,8 @@
         "CategoryTags": [ "UI", "Other" ],
         "IconUrl": "https://raw.githubusercontent.com/NNekoPlugins/NNekoWeaponIcons/main/NNekoWeaponIcons/Data/NNeko.png",
         "RepoUrl": "https://github.com/NNekoPlugins/NNekoWeaponIcons",
-        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.1.2/latest.zip",
-        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.1.2/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.1.2/latest.zip"
+        "DownloadLinkInstall": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.2.0/latest.zip",
+        "DownloadLinkTesting": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.2.0/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/NNekoPlugins/NNekoWeaponIcons/releases/download/v0.0.2.0/latest.zip"
     }
 ]
