@@ -61,6 +61,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Project
+        working-directory: NNekoWeaponIcons
         run: | 
           dotnet build -c ${{ matrix.build_mode }}
           echo "Checksum: $(sha512sum bin/x64/${{ matrix.build_mode }}/NNekoWeaponIcons.dll)"
