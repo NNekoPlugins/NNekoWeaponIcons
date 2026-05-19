@@ -36,15 +36,15 @@ jobs:
       - name: Setup Dalamud
         uses: Blooym/setup-dalamud@v1.1.0
 
-      - name: Restore Project
-        working-directory: NNekoWeaponIcons
-        run: dotnet restore
+      - name: Restore Dependencies
+        run: dotnet restore NNekoWeaponIcons/NNekoWeaponIcons.csproj
+
 
       - name: Build plugin in release mode
-        run: dotnet build -c Release --no-restore --nologo -o ./bin/Release
+        run: dotnet build NNekoWeaponIcons/NNekoWeaponIcons.csproj -c Release --no-restore --nologo -o NNekoWeaponIcons/bin/Release
 
       - name: Generate Checksums
-        working-directory: bin/Release/NNekoWeaponIcons
+        working-directory: NNekoWeaponIcons/bin/Release/NNekoWeaponIcons
         run: |
           sha512sum latest.zip >> checksums.sha512
 
