@@ -19,9 +19,6 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
     strategy:
       fail-fast: false
       matrix:
@@ -60,8 +57,7 @@ jobs:
           cat lint.txt | sed -E 's/^(.*)$/::warning:: \1/g'
 
       - name: Restore Project
-        run: |
-          dotnet restore NNekoWeaponIcons/NNekoWeaponIcons.csproj
+        run: dotnet restore NNekoWeaponIcons.csproj
 
       - name: Build Project
         run: | 
