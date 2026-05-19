@@ -5,7 +5,7 @@
         <Author>NaughtyNeko</Author>
         <Punchline>Can't seem to find the right weapon for the job?  This may help!</Punchline>
         <Description>Adds a Clas/Job Icon Overlay in Armoury Chest.  Split from VIWI plugin's Kitchen Sink module.</Description>
-        <Tags>NNeko,NaughtyNeko,Triggers,RP,Conditional,Commands,Utility,Other</Tags>
+        <Tags>NNeko,NaughtyNeko,UI,Other</Tags>
         <WarningLevel>4</WarningLevel>
         <PackageLicenseExpression>APGL-3.0-or-later</PackageLicenseExpression>
         <Deterministic>true</Deterministic>
