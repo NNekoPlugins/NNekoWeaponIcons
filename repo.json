@@ -3,6 +3,7 @@
         "Author": "NaughtyNeko",
         "Name": "NNeko's Weapon Icons",
         "InternalName": "NNekoWeaponIcons",
+        "Version":"0.0.1.2",
         "AssemblyVersion":"0.0.1.2",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
