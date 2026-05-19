@@ -45,17 +45,20 @@ jobs:
 
       - name: Check for Lint Errors
         id: lint
+        working-directory: NNekoWeaponIcons
         continue-on-error: true
         run: | 
           dotnet format --verify-no-changes > lint.txt 2>&1
 
       - name: Report Lint Errors
+        working-directory: NNekoWeaponIcons
         if : steps.lint.outcome == 'failure'
         run: |
           cat lint.txt | sed -E 's/^(.*)$/::warning:: \1/g'
 
       - name: Restore Project
-        run: dotnet restore NNekoWeaponIcons/NNekoWeaponIcons.csproj
+        working-directory: NNekoWeaponIcons
+        run: dotnet restore
 
       - name: Build Project
         run: | 
