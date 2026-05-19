@@ -36,9 +36,9 @@ jobs:
       - name: Setup Dalamud
         uses: Blooym/setup-dalamud@v1.1.0
 
-      - name: Restore Dependencies
-        run: dotnet restore NNekowWeaponIcons/NNekowWeaponIcons.csproj
-
+      - name: Restore Project
+        working-directory: NNekoWeaponIcons
+        run: dotnet restore
 
       - name: Build plugin in release mode
         run: dotnet build -c Release --no-restore --nologo -o ./bin/Release
